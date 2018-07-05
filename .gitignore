@@ -1,2 +1,6 @@
 
 slides/slides\.pdf
+
+target/
+
+Cargo\.lock

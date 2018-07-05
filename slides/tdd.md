@@ -27,9 +27,23 @@ Note: speaker notes FTW!
 ### Unit Tests
 
 * By convention appended to the same file to be tested
+* Debug configuration by default (--release to override)
+
+----
+
+### Integration Tests
+
+* By convention appended to the same file to be tested
+
+----
+
+### Performance Tests
+
+* By convention appended to the same file to be tested
+* release by default (--debug to override)
 
 ---
 
 ## proptest
 
-> The best tests are those you do not need to write. - Tyler Neely
+> The best tests are those you do not need to write yourself. - Tyler Neely
