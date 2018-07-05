@@ -6,13 +6,11 @@ revealOptions:
 
 # Testing in Rust
 
-* Language Feature
-* Rust Testing Libraries
+* Language Features
+* Rust Libraries for Testing
   * e.g. proptest, netsim
 * Language-agnostic tools
   * e.g. Jepsen, TLA+
-
-Note: speaker notes FTW!
 
 ---
 
@@ -60,6 +58,7 @@ Note: speaker notes FTW!
   * Name needs to include the complete module path
   * Module path alone runs all tests below that module
 * Run a specific integration test using "--test <filename.rs>"
+* Use "--tests" option to only run unit tests
 
 ----
 
