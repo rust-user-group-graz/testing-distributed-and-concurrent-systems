@@ -46,19 +46,40 @@ Note: speaker notes FTW!
 
 ### Integration Tests
 
-* To test the conjunction of multiple modules within a crate
+* To test multiple modules in combination
 * Located in a "tests" folder alongside the "src" folder
-* No need to mark with the #[cfg(test)] attribute - assumed automatically
+* No need to mark with the #[cfg(test)] attribute
+* Tested crate needs to be imported
+* Each integration test source file compiled as separate crate
+
+----
+
+### Test Filter Options
+
+* Run a specific unit/performance test specifying the test name
+  * Name needs to include the complete module path
+  * Module path alone runs all tests below that module
+* Run a specific integration test using "--test <filename.rs>"
 
 ----
 
 ### Performance Tests
 
-* By convention appended to the same file to be tested
-* release by default (--debug to override)
-
+* Requires the "test" feature and crate import
+```
+#![feature(test)]
+extern crate test;
+```
+* Run with "cargo bench"
+* Use the "#[bench]" attribute on the test function
 ---
 
 ## proptest
 
 > The best tests are those you do not need to write yourself. - Tyler Neely
+
+----
+
+* Based on Python's "Hypothesis" module
+  * Which in turn is based on Haskell's "QuickCheck"
+* By convention appended to the same file to be tested
