@@ -7,8 +7,8 @@ revealOptions:
 # Testing in Rust
 
 * Language Feature
-* Specialized Libraries
-  * e.g. for Property Testing
+* Rust Testing Libraries
+  * e.g. proptest, netsim
 * Language-agnostic tools
   * e.g. Jepsen, TLA+
 
@@ -82,4 +82,46 @@ extern crate test;
 
 * Based on Python's "Hypothesis" module
   * Which in turn is based on Haskell's "QuickCheck"
-* By convention appended to the same file to be tested
+* Randomly checks over an input range
+* Automatically reduces to a *minimal* test case
+* Writes seed for random number generation in case of failure
+  * Makes random failures repeatable
+* Combine with traditional Unit Testing for edge cases
+
+----
+### Usage
+
+* Import proptest crate with using_macros and test attributes
+```
+#[cfg(test)]
+#[macro_use]
+extern crate proptest;
+```
+* Then use the proptest! macro to define tests
+
+----
+
+### Example
+
+```
+    proptest! {
+        #[test]
+        fn a_proptest(a in (0i32..100),
+                      b in (0i32..100)) {
+            assert!(a * b <= 10000);
+        }
+    }
+```
+
+----
+
+### String Patterns
+
+* proptest supports more advanced range patterns
+  * patterns extensible as "Strategies"
+```
+#[test]
+    fn parses_all_valid_dates(s in "[0-9]{4}-[0-9]{2}-[0-9]{2}") {
+        parse_date(s).unwrap();
+    }
+```
