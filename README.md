@@ -4,5 +4,5 @@ Inspired by the in the Rustfest Paris 2018 talk [Building Reliable Infrastructur
 
 Additional talks and material courtesy by:
 
-* Josef Hammer Introduction to Jepsen - Josef Hammer
+* Introduction to Jepsen - Josef Hammer
 * Markus Teufelberger - Introduction to TLA+
